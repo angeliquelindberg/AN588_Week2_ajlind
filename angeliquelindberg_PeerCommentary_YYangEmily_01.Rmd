@@ -17,10 +17,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Creating Vector
 
 ```{r creating a vector}
-v<-c("Stately","plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
+v<-c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
 v
-#could also have entered the whole sentence in quotes then used gsub("[[:punct:]]","",*string*)
+#could also have entered the whole sentence in quotes then used gsub("[[:punct:]]","",*string*))
+
+#'* I wanted to try it out EY*
+x<-c("Stately, plump, Buck, Mulligan, came, from, the, stairhead, bearing, a, bowl, of, lather, on, which, a, mirror, and, a, razor, lay, crossed")
+gsub("[[:punct:]]","",x)
+
 ```
+<p style="color: #0000ff;">EY: Your use of gsub is very interesting. I think I'm missing something from your explanation </p>
+
 
 ### Extracting every third element
 
@@ -28,6 +35,7 @@ v
 v[seq(from = 1, to = 22, by = 3)]
 #note that seq() may not always work well with character vectors
 ```
+<p style="color: #0000ff;">EY: Interesting instead of the last word in every group of 3 it picked the first word of the 3. Are you able to get it to pick the last of each set?</p>
 
 Side note: an important function is str()! For example,
 
@@ -63,7 +71,7 @@ x
 y<-m[2:6, 2:9]
 y
 ```
-
+<p style="color: #0000ff;">EY: We did it the same way!</p>
 ## Challenge 3 - Working with arrays
 
 ### Creating an array
@@ -90,7 +98,7 @@ a[2,3,2,]
 a[1:5, 1:5, 3, 3]
 #this is selecting the entire 3,3 matrix (because all five rows and all five columns)
 ```
-
+<p style="color: #0000ff;">EY: We did it the same way!</p>
 ## Challenge 4 - Working with lists
 
 ### Creating a list
@@ -126,6 +134,7 @@ Primates<-list(Haplorhini, Strepsirhini)
 names(Primates)<-list("Haplorhini", "Strepsirhini")
 Primates
 ```
+<p style="color: #0000ff;">We did it the same way!</p>
 
 ## Challenge 5 - Working with data frames and conversion
 
@@ -152,4 +161,4 @@ Side note 2: another str() function example:
 ```{r structure example2}
 str(df)
 ```
-
+<p style="color: #0000ff;">We did it the same way! I'd maybe add a little more comments because you say what you're doing in the chunk naming but can't see that in html</p>
