@@ -134,7 +134,7 @@ Primates<-list(Haplorhini, Strepsirhini)
 names(Primates)<-list("Haplorhini", "Strepsirhini")
 Primates
 ```
-<p style="color: #0000ff;">We did it the same way!</p>
+<p style="color: #0000ff;">EY: We did it the same way!</p>
 
 ## Challenge 5 - Working with data frames and conversion
 
@@ -161,4 +161,4 @@ Side note 2: another str() function example:
 ```{r structure example2}
 str(df)
 ```
-<p style="color: #0000ff;">We did it the same way! I'd maybe add a little more comments because you say what you're doing in the chunk naming but can't see that in html</p>
+<p style="color: #0000ff;">EY: We did it the same way! I'd maybe add a little comment about the coercing data classes because you say what you're doing in the chunk naming but can't see that in html. Good job!</p>
