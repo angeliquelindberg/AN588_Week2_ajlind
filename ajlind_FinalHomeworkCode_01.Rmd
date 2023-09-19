@@ -1,0 +1,174 @@
+---
+title: "ajlind_OriginalHomeworkCode_01"
+author: "Angelique J. Lindberg"
+date: "19 September 2023"
+output: 
+  html_document:
+     theme: darkly
+     toc: true
+     toc_float: true
+     collapsed: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment 1 - Working with R Data Structures
+
+## Challenge 1 - Working with Vectors
+
+### Creating Vector
+
+```{r creating a vector}
+v<-c("Stately","plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
+v
+#could also have entered the whole sentence in quotes then used gsub("[[:punct:]]","",*string*)
+```
+
+### Extracting every third element
+
+```{r splitting a vector}
+v[seq(from = 3, to = 22, by = 3)]
+#note that seq() may not always work well with character vectors
+```
+
+Side note: an important function is str()! For example,
+
+```{r structure example}
+str(v)
+#so this is saying that v is a character vector with 22 values and then it lists them
+```
+Will provide another example of str() in challenge 5
+
+## Challenge 2 - Working with matrices
+
+### Creating a matrix
+
+```{r creating matrix}
+m<-matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+```
+
+### Subsetting a matrix
+
+```{r subsetting by column}
+X<-m[,c(2,3,6)]
+#bracket notation allows for subsetting [row, column]; here I'm selecting multiple columns by combining them with the c funcion
+X
+```
+
+```{r subsetting by row}
+x<-m[c(6:8),]
+x
+```
+
+```{r subsetting by row and column}
+y<-m[2:6, 2:9]
+y
+```
+
+## Challenge 3 - Working with arrays
+
+### Creating an array
+
+```{r creating an array}
+a<-array(400:1, dim = c(5,5,4,4))
+#note: this is a descending array, the dimensions are given by (row, column, # of matrices) 
+a
+```
+
+### Subsetting an array
+
+```{r subsetting array1}
+a[1,1,1,2]
+#this is selecting the element at the first row and first column of the 1,2 array
+```
+
+```{r subsetting array2}
+a[2,3,2,]
+#this is selecting the elements at the second row and third column of all arrays that start with 2
+```
+
+```{r subsetting array3}
+a[1:5, 1:5, 3, 3]
+#this is selecting the entire 3,3 matrix (because all five rows and all five columns)
+```
+
+## Challenge 4 - Working with lists
+
+### Creating a list
+
+```{r lemur and loris taxon}
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae","Daubentoniidae")
+Lorisoidea <- c("Lorisidae", "Galagidae")
+```
+
+```{r stepsirhine taxon}
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) <- list("Lemuroidea", "Lorisoidea")
+```
+
+```{r tarsoid et al taxon}
+Tarsoidea<-"Tarsiidae"
+Catarrhini<- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+Platyrrhini<- c("Cebidae", "Atelidae", "Pitheciidae")
+```
+
+```{r anthropoid taxon}
+Anthropoidea<-list(Platyrrhini, Catarrhini)
+names(Anthropoidea)<-list("Platyrrhini", "Catarrhini")
+```
+
+```{r haplorhine taxon}
+Haplorhini<-list(Anthropoidea, Tarsoidea)
+names(Haplorhini)<-list("Anthropoidea", "Tarsoidea")
+```
+
+```{r full primate}
+Primates<-list(Haplorhini, Strepsirhini)
+names(Primates)<-list("Haplorhini", "Strepsirhini")
+Primates
+```
+
+## Challenge 5 - Working with data frames and conversion
+
+### Making a matrix and then coercing it into a data frame
+```{r creating matrix for df}
+m3<-matrix(data = c(3,0,1,23,1,2,33,1,1,42,0,1,41,0,2), nrow = 5, ncol = 3, byrow = TRUE)
+m3
+```
+
+```{r coercing into df}
+df <- data.frame(m3)
+df
+```
+
+### Coercing into different data classes
+```{r coercing into character}
+df[,2]<-as.character(df[,2])
+#this is coercing the second column into a character
+```
+
+```{r coercing into factor}
+df[,3]<-as.factor(df[,3])
+#this is coercing the third column into a factor
+```
+
+Side note 2: another str() function example:
+```{r structure example2}
+str(df)
+```
+
+# Reflection
+<center>3 DIFFICULT THINGS:</center>
+At first, it was hard to figure out/find out some really basic navigations. For example, how to create a chunk: there are several ways, but it took me until literally yesterday to realize the easiest was (option+cmd+i) and not having to copy and paste over and over. Also, while I'm getting better at it, I find github very counterintuitive and not very user-friendly. For example, adding a collaborator and finding repos you've been added to are harder to do than I think they should be. Finally, I'm finding it a bit difficult to let go of issues/know if I should keep working on fixing it. Specifically, when I can't get a function to work (like str_split, for example), but I find an alternative (like seq), I'm not always sure if I should just move on or try and figure out why it's not working, how much time I should spend on it, etc.
+
+<center>3 WAYS COMMENTARY WAS HELPFUL:</center>
+Through both providing and receiving commentary, it was helpful to have a bit of confirmation that we're doing things the same way/ in a similar way. At the same time, I did see some different ways of doing things, which made me sort of think outside of the box about my own code, so that was cool. Lastly, providing commentary was helpful because I was able to suggest some ways they could work through some issues and that made me feel quite knowlegeable; it was gratifying to the work I've been putting in to learning the code is paying off. 
+
+<center>2 THINGS YOU LIKED/THAT HELPED:</center>
+I really enjoyed the commentary aspect as I got to see ways other people's code was different than mine. I also think the prettification requirement was fun; I played with a lot of themes.  
+
+<center>1 THING THAT NEEDS IMPROVEMENT:</center>
+I wouldn't mind some more explicit guidelines on things like what to comment on, how to format comments, etc. for the peer commentary section (I personally didn't find the teamwork readings helpful). Also a really small thing - I was a bit confused by the instruction to only have the 6 files in the final repo because there's going to be multiple commits probably and also does that not include the read me?
